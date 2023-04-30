@@ -3,6 +3,8 @@ import '../style.css';
 import pizzaSlice from '../img/pizzaSlice.png';
 import createHeader from './header.js';
 import createFooter from './footer.js';
+import loadContact from './contact.js';
+import loadMenu from './menu.js';
 
 
 export default function loadHome(){
@@ -36,6 +38,10 @@ export default function loadHome(){
     orderNowDiv.classList.add('order-now');
     orderNowBtn.classList.add('btn');
 
+    orderNowBtn.addEventListener('click', ()=>{
+        loadContact();
+    });
+
     //append elements in Order Description div
     orderNowDiv.appendChild(orderNowH2);
     orderNowDiv.appendChild(orderNowP);
@@ -61,9 +67,18 @@ export default function loadHome(){
 
     viewMenuImg.src = pizzaSlice;
 
+    viewMenuDiv.classList.add('view-menu');
+    viewMenuInfoDiv.classList.add('view-menu-info');
+    viewMenuTitle.id = 'view-menu-title';
+
     viewMenuBtn.textContent='View Menu';
     viewMenuBtn.classList.add('btn');
     viewMenuBtn.id='view-menu-btn';
+
+    viewMenuBtn.addEventListener('click', ()=>{
+        loadMenu();
+    });
+
 
     viewMenuTextDiv.appendChild(viewMenuTitle);
     viewMenuTextDiv.appendChild(viewMenuTextP);
@@ -76,9 +91,9 @@ export default function loadHome(){
     contentDiv.appendChild(viewMenuDiv);
 
     //Create and append navBar to the body
-    body.appendChild(createHeader());
-    body.appendChild(contentDiv);
-    body.appendChild(createFooter());
+    document.body.appendChild(createHeader());
+    document.body.appendChild(contentDiv);
+    document.body.appendChild(createFooter());
 
     //ADD navbar classes
     const list = document.querySelector('ul');

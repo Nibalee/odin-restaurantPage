@@ -4,7 +4,7 @@ import loadMenu from "./menu.js"
 
 export default function createHeader(){
     
-    const header = document.createElement('header');
+    const headerDiv = document.createElement('header');
     const logo = document.createElement('h2');
     const list = document.createElement('ul');
     
@@ -13,14 +13,17 @@ export default function createHeader(){
 
     const ids = [
         {
+            name: "Home",
             liId : "li-home",
             aId: "a-home"
         },
         {
+            name: "Menu",
             liId : "li-menu",
             aId: "a-menu"
         },
         {
+            name: "Contact",
             liId : "li-contact",
             aId: "a-contact"
         }   
@@ -33,15 +36,16 @@ export default function createHeader(){
 
         //Adding ids for both li and a
         listItem.id = ids[i].liId;
-        listA.id = ids[i].listA;
+        listA.id = ids[i].aId;
+        listA.textContent = ids[i].name;
 
         //appending elements
         listItem.appendChild(listA);
         list.appendChild(listItem);
     }
 
-    header.appendChild(logo);
-    header.appendChild(list);
+    headerDiv.appendChild(logo);
+    headerDiv.appendChild(list);
     
     const listItems  = list.querySelectorAll('li');
 
@@ -49,7 +53,10 @@ export default function createHeader(){
         if(listItems[0].classList.contains("li-active")){
             return;
         }else{
+            document.body.innerHTML= '';
+            document.body.innerHTML+= '<script src="./main.js"></script>';
             loadHome();
+            document.getElementById('content').classList.remove('content-contact');
         }
     });
 
@@ -58,6 +65,7 @@ export default function createHeader(){
             return;
         }else{
             loadMenu();
+            document.getElementById('content').classList.remove('content-contact');
         }
     });
 
@@ -68,5 +76,6 @@ export default function createHeader(){
             loadContact();
         }
     });
-    return header;
+
+    return headerDiv;
 }

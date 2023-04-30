@@ -12,7 +12,7 @@ export default function loadMenu() {
     const menuDiv = document.createElement('div');
     const menuImg = document.createElement('img');
 
-    bannerDiv.classList.add('banner');
+    bannerDiv.classList.add('banner', 'top-title');
     bannerH2.textContent = 'Our Menu';
 
     menuDiv.classList.add('menu');

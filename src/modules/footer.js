@@ -2,7 +2,7 @@ import '../style.css';
 
 export default function createFooter() {
     
-    const footer = document.createElement('footer');
+    const footerDiv = document.createElement('footer');
     const footerP = document.createElement('p');
     const footerA = document.createElement('a');
     const footerI = document.createElement('i');
@@ -14,8 +14,8 @@ export default function createFooter() {
     footerI.setAttribute('style', 'color: #ffffff;');
 
     footerA.appendChild(footerI);
-    footer.appendChild(footerP);
-    footer.appendChild(footerA);
+    footerDiv.appendChild(footerP);
+    footerDiv.appendChild(footerA);
 
-    return footer;
+    return footerDiv;
 }

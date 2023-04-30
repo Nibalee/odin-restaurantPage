@@ -1,3 +1,4 @@
-import loadHome from "./modules/home";
+import loadHome from "./modules/home.js";
+import './style.css';
 
 loadHome();

@@ -19,18 +19,16 @@ export default function loadContact() {
         card.classList.add('card');
         cards.push(card);
 
-        let i = document.createElementNS('i');
+        let i = document.createElement('i');
         iElements.push(i);
 
-        let p = document.createElementNS('p');
+        let p = document.createElement('p');
         pElements.push(p);
     }
 
     iElements[0].classList.add('fa-sharp','fa-solid', 'fa-location-dot');
     iElements[0].setAttribute('style', 'color: #ffffff;');
-    pElements[0].textContent ="Via Principe Amedeo, 251, ";
-    pElements[0].innerHTML += '<br>';
-    pElements[0].textContent ="00185 Roma RM, Italy";
+    pElements[0].textContent ="Via Principe Amedeo, 251, 00185 Roma RM, Italy";
 
     iElements[1].classList.add('fa-solid', 'fa-phone-volume');
     iElements[1].setAttribute('style', 'color: #ffffff;');
@@ -121,11 +119,6 @@ export default function loadContact() {
         e.preventDefault();
     });
 
-    contactForm.appendChild(input1);
-    contactForm.appendChild(select1);
-    contactForm.appendChild(input2);
-    contactForm.appendChild(input3);
-    contactForm.appendChild(formBtn);
 
     //ADD navbar classes
     const list = document.querySelector('ul');
@@ -139,5 +132,15 @@ export default function loadContact() {
 
     listItems[2].classList.add('li-active');
     listItems[2].querySelector('a').classList.add('a-active');
+
+    contactForm.appendChild(input1);
+    contactForm.appendChild(select1);
+    contactForm.appendChild(input2);
+    contactForm.appendChild(input3);
+    contactForm.appendChild(formBtn);
+
+    contactFormDiv.appendChild(contactFormH3);
+    contactFormDiv.appendChild(contactForm);
+    contentDiv.appendChild(contactFormDiv);
 
 }
